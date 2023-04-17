@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "My Food";
+}
+@model MyFoodVM
+
+<h3 class="display-5">My Food</h3>
+
+<ul class="list-group list-group-numbered">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">All my food</div>
+            <span>
+                <a asp-controller="eSpensa" asp-action="FoodList" asp-route-listName="All">View</a>
+            </span>
+        </div>
+        <span class="badge bg-primary rounded-pill" style="color: white;">@Model.AllFoodCount</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">In my fridge</div>
+            <span>
+                <a asp-controller="eSpensa" asp-action="FoodList" asp-route-listName="Fridge">View</a>
+            </span>
+        </div>
+        <span class="badge bg-primary rounded-pill" style="color: white;">@Model.ItemsInFridgeCount</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">In my pentry</div>
+            <span>
+                <a asp-controller="eSpensa" asp-action="FoodList" asp-route-listName="Pentry">View</a>
+            </span>
+        </div>
+        <span class="badge bg-primary rounded-pill" style="color: white;">@Model.ItemsInPentryCount</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">Expiring Soon</div>
+            <span>
+                <a asp-controller="eSpensa" asp-action="FoodList" asp-route-listName="Expiring">View</a>
+            </span>
+        </div>
+        <span class="badge bg-danger rounded-pill" style="color: white;">@Model.ConsumeSoon</span>
+    </li>
+</ul>
+
+<a class="btn btn-primary mt-3" asp-action="AddItemToMyFood" role="button">Add New Item</a>

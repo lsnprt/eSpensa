@@ -1,0 +1,14 @@
+﻿@model FoodListVM
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h3 class="display-5">@Model.Name</h3>
+<ul>
+    @{
+        foreach (var food in Model.FoodsList)
+        {
+            <partial name="_FoodItemInMyFood" model=food />
+        }
+    }
+</ul>

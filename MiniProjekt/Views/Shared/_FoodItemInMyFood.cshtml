@@ -1,0 +1,12 @@
+﻿@model FoodListVM.FoodItemVM
+@{
+    int daysLeft = (Model.ExpirationDate - DateTime.Now.Date).Days;
+ }
+
+<li class="list-group-item d-flex @(Model.IsRefrigerated ? "list-group-item-primary" : "") justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+        <div class="fw-bold">@Model.ItemName</div>
+        @Model.FoodGroup <a asp-action="DeleteFoodItem" asp-route-listName="@ViewBag.Title" asp-route-id="@Model.Id">Remove</a>
+    </div>
+    <span class="badge @(daysLeft < 3 ? "bg-danger" : "bg-primary") rounded-pill ">@(daysLeft + " " + ((uint)daysLeft == 1 ? "day" : "days")) left</span>
+</li>

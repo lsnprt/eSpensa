@@ -1,0 +1,12 @@
+﻿@model MyListsVM.ListVM
+
+<li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+        <div class="fw-bold">@Model.Name</div>
+        <span>
+            <a asp-action="List" asp-route-id=@Model.Name>View</a>
+            <a asp-action="DeleteList" asp-route-id=@Model.Name>Delete</a>
+        </span>
+    </div>
+    <span class="badge bg-primary rounded-pill" style="color: white;">@Model.ItemCount</span>
+</li>
